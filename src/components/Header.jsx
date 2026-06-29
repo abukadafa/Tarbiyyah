@@ -39,8 +39,6 @@ export default function Header() {
             <Link to="/about">FAQs</Link>
             <span className="dot">·</span>
             <Link to="/about">Contact Support</Link>
-            <span className="dot">·</span>
-            <a href="https://github.com/abukadafa/Tarbiyyah.git" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
           </div>
         </div>
       </div>
