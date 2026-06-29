@@ -61,6 +61,34 @@ function PageLayout() {
     // Scroll to top on navigation
     window.scrollTo(0, 0);
 
+    // Page Title & Meta Description mapping for SPA SEO
+    const metaData = {
+      '/': {
+        title: 'Tarbiyyah Support Foundation | Empowering Rural Education',
+        description: 'Empowering underserved children and uplifting dedicated teachers through quality education and moral guidance across rural Northern Nigeria.'
+      },
+      '/about': {
+        title: 'About Us | Tarbiyyah Support Foundation',
+        description: 'Learn about our history, moral training principles, and our team dedicated to raising educational standards in underserved rural communities.'
+      },
+      '/impact': {
+        title: 'Impact & Goals | Tarbiyyah Support Foundation',
+        description: 'Explore our progress, completed school builds, classrooms renovated, teacher welfare projects, and core strategic objectives.'
+      },
+      '/donate': {
+        title: 'Donate Now | Support Tarbiyyah Support Foundation',
+        description: 'Put your gift exactly where it is needed. Sponsor student learning kits, support rural teachers, or fund a full classroom construction block.'
+      }
+    };
+
+    const currentMeta = metaData[pathname] || metaData['/'];
+    document.title = currentMeta.title;
+
+    const descMeta = document.querySelector('meta[name="description"]');
+    if (descMeta) {
+      descMeta.setAttribute('content', currentMeta.description);
+    }
+
     // Cleanup function
     return () => {
       if (obs) {
