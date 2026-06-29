@@ -1,7 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function About() {
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      q: "What is Tarbiyyah Support Foundation's primary mission?",
+      a: "We aim to uplift underserved children and support dedicated teachers through educational materials, classroom infrastructure development, and moral guidance (Tarbiyyah) across rural Northern Nigeria."
+    },
+    {
+      q: "How are donation funds allocated?",
+      a: "62% goes directly to student sponsorships and teacher welfare support, 24% is spent on classroom materials and building infrastructure, and 14% covers project monitoring, operations, and logistics."
+    },
+    {
+      q: "Where does Tarbiyyah Support Foundation operate?",
+      a: "Our headquarters is located at Kam Salem Road, Malali GRA, Kaduna. We actively run project hubs and school renovations in rural regions across Kano, Sokoto, Kaduna, and Borno states."
+    },
+    {
+      q: "Is Tarbiyyah Support Foundation a registered organization?",
+      a: "Yes, we are fully registered with the Corporate Affairs Commission (CAC) of Nigeria as a non-governmental organization (NGO) under registration number RC 9624530."
+    },
+    {
+      q: "How can I sponsor a specific classroom or teacher?",
+      a: "You can visit our Donate page, select a dedicated tier (such as a monthly teacher stipend or a classroom construction block), or contact our Kaduna office directly at 0813 693 4004 to set up a direct partnership."
+    }
+  ];
   return (
     <>
       <section className="page-hero">
@@ -102,6 +130,87 @@ export default function About() {
               <p>We don't separate academic learning from moral guidance — both are part of what it means to educate a child well.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FAQs SECTION (NOU Style Accordion) */}
+      <section className="faq-section" id="faq">
+        <div className="wrap">
+          <div className="center" style={{ maxWidth: '600px', margin: '0 auto 48px' }} data-reveal>
+            <p className="eyebrow" style={{ justifyContent: 'center' }}>Frequently Asked Questions</p>
+            <h2>Have Questions? We Have Answers.</h2>
+          </div>
+          
+          <div className="faq-container" data-reveal>
+            {faqs.map((faq, idx) => (
+              <div key={idx} className="faq-item">
+                <button 
+                  className={`faq-question ${openFaq === idx ? 'is-active' : ''}`}
+                  onClick={() => toggleFaq(idx)}
+                  type="button"
+                >
+                  <span>{faq.q}</span>
+                  <span className="faq-icon">+</span>
+                </button>
+                <div className={`faq-answer ${openFaq === idx ? 'is-open' : ''}`}>
+                  <p>{faq.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT US SECTION */}
+      <section className="about-contact-section" id="contact">
+        <div className="wrap contact-grid-alt">
+          
+          {/* Left: Contact Info details */}
+          <div className="contact-info-col" data-reveal>
+            <h3>Get In Touch</h3>
+            
+            <div className="contact-detail-item">
+              <h5>Office Address</h5>
+              <p>Kam Salem Road, Malali GRA, Kaduna, Nigeria</p>
+            </div>
+
+            <div className="contact-detail-item">
+              <h5>Phone Numbers</h5>
+              <p style={{ marginBottom: '6px' }}><a href="tel:+2348136934004">0813 693 4004</a></p>
+              <p><a href="tel:+2348091581000">0809 158 1000</a></p>
+            </div>
+
+            <div className="contact-detail-item">
+              <h5>Email Address</h5>
+              <p><a href="mailto:contact@tarbiyyah.org">contact@tarbiyyah.org</a> (Domain incoming)</p>
+            </div>
+          </div>
+
+          {/* Right: Social Media channels placeholders */}
+          <div className="contact-socials-col" data-reveal>
+            <h3>Connect With Us</h3>
+            <p style={{ color: '#5B5D50', marginBottom: '24px', fontSize: '0.95rem' }}>We are opening our official social channels soon. Connect with us on our temporary profiles or follow our announcements:</p>
+            
+            <div className="social-links-list">
+              <a href="#" className="social-link-item" onClick={(e) => e.preventDefault()}>
+                <div className="social-icon-box">FB</div>
+                <span>facebook.com/tarbiyyahsupport</span>
+              </a>
+              <a href="#" className="social-link-item" onClick={(e) => e.preventDefault()}>
+                <div className="social-icon-box">TT</div>
+                <span>tiktok.com/@tarbiyyahsupport</span>
+              </a>
+              <a href="#" className="social-link-item" onClick={(e) => e.preventDefault()}>
+                <div className="social-icon-box">IG</div>
+                <span>instagram.com/tarbiyyahsupport</span>
+              </a>
+              <a href="#" className="social-link-item" onClick={(e) => e.preventDefault()}>
+                <div className="social-icon-box">LN</div>
+                <span>linkedin.com/company/tarbiyyahsupport</span>
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
 

@@ -58,8 +58,18 @@ function PageLayout() {
       counters.forEach(el => counterObs.observe(el));
     }
 
-    // Scroll to top on navigation
-    window.scrollTo(0, 0);
+    // Scroll to top on navigation, or scroll to hash if it exists
+    if (window.location.hash) {
+      const hash = window.location.hash;
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 200);
+    } else {
+      window.scrollTo(0, 0);
+    }
 
     // Page Title & Meta Description mapping for SPA SEO
     const metaData = {

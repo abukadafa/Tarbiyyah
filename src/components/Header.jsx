@@ -36,9 +36,9 @@ export default function Header() {
             <span>Registered NGO: RC 9624530</span>
           </div>
           <div className="top-bar-right">
-            <Link to="/about">FAQs</Link>
+            <Link to="/about#faq">FAQs</Link>
             <span className="dot">·</span>
-            <Link to="/about">Contact Support</Link>
+            <Link to="/about#contact">Contact Support</Link>
           </div>
         </div>
       </div>
