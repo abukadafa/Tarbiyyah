@@ -240,7 +240,7 @@ export default function Donate() {
             <div className="sidebar-card">
               <h3>Secure &amp; transparent</h3>
               <ul className="trust-list">
-                <li>Registered Nigerian non-profit</li>
+                <li>Registered NGO (RC 9624530)</li>
                 <li>Bank-grade payment encryption</li>
                 <li>Annual project impact reports</li>
               </ul>

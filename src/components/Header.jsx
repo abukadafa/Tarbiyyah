@@ -33,7 +33,7 @@ export default function Header() {
           <div className="top-bar-left">
             <span>Operating in rural Northern Nigeria</span>
             <span className="dot">·</span>
-            <span>Registered NGO: CAC/IT/NO/12345</span>
+            <span>Registered NGO: RC 9624530</span>
           </div>
           <div className="top-bar-right">
             <Link to="/about">FAQs</Link>
