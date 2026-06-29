@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { events } from '../data/events.js';
 
 export default function Home() {
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSlideIndex((prev) => (prev + 1) % events.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setSlideIndex((prev) => (prev + 1) % events.length);
+  };
+
+  const prevSlide = () => {
+    setSlideIndex((prev) => (prev - 1 + events.length) % events.length);
+  };
+
   return (
     <>
       {/* HERO */}
@@ -86,6 +104,73 @@ export default function Home() {
               <p>Scholarships, stipends, and material support for the rural teachers and students who carry this work forward every day.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FEATURED DYNAMIC MEDIA & EVENTS SECTION */}
+      <section className="home-media-section">
+        <div className="wrap home-media-grid">
+          
+          {/* LEFT: Featured Short Video */}
+          <div className="home-video-wrapper" data-reveal>
+            <h3>Our Mission in Action</h3>
+            <video 
+              className="home-html5-player" 
+              controls 
+              muted 
+              loop 
+              autoPlay
+              playsInline
+            >
+              <source src="https://assets.mixkit.co/videos/preview/mixkit-kids-in-a-classroom-smiling-at-the-camera-34289-large.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <p className="video-caption">🎥 Watch a brief video showcasing our rural student outreach and classroom environments.</p>
+          </div>
+
+          {/* RIGHT: Events Slideshow */}
+          <div className="home-slideshow-wrapper" data-reveal>
+            <h3>Recent Outreach &amp; Events</h3>
+            <div className="slideshow-container">
+              {events.map((event, idx) => (
+                <div 
+                  key={event.id}
+                  className={`slideshow-slide ${slideIndex === idx ? 'slide-active' : ''}`}
+                  style={{ display: slideIndex === idx ? 'block' : 'none' }}
+                >
+                  <div className="slide-image-wrap">
+                    <img src={event.image} alt={event.title} loading="lazy" />
+                  </div>
+                  <div className="slide-content">
+                    <span className="slide-date">{event.date}</span>
+                    <h4 className="slide-title">{event.title}</h4>
+                    <p className="slide-desc">{event.description}</p>
+                  </div>
+                </div>
+              ))}
+              
+              <div className="slideshow-controls">
+                <button className="slideshow-btn" onClick={prevSlide} aria-label="Previous event" type="button">
+                  ←
+                </button>
+                <div className="slideshow-dots">
+                  {events.map((_, idx) => (
+                    <button 
+                      key={idx}
+                      className={`slideshow-dot ${slideIndex === idx ? 'is-active' : ''}`}
+                      onClick={() => setSlideIndex(idx)}
+                      aria-label={`Go to event ${idx + 1}`}
+                      type="button"
+                    ></button>
+                  ))}
+                </div>
+                <button className="slideshow-btn" onClick={nextSlide} aria-label="Next event" type="button">
+                  →
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
