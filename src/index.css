@@ -23,16 +23,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
 :root {
-  --ink: #23241F;
-  --canvas: #FAF6EE;
-  --canvas-deep: #F1EADA;
-  --green: #13402E;
-  --green-soft: #1F5340;
-  --sage: #7C8F73;
-  --gold: #C8932B;
-  --gold-soft: #E8D9B5;
-  --terracotta: #A85C32;
-  --line: #DCD3BC;
+  --ink: #1C1D1A;             /* Sharper charcoal text */
+  --canvas: #FFFFFF;          /* Pure crisp white background */
+  --canvas-deep: #F5F7F2;     /* Clean light gray-green tint */
+  --green: #0C3825;           /* Richer, deeper forest green */
+  --green-soft: #164D36;      /* Vibrant hover state green */
+  --sage: #5F7455;            /* Muted green with higher contrast */
+  --gold: #D29A2E;            /* Brighter, sharper gold accent */
+  --gold-soft: #F5EAD2;       /* Warm gold tint */
+  --terracotta: #C2511D;      /* Sharper terracotta warning/urgency color */
+  --line: #E2DBD0;            /* Sharper border lines */
 
   --font-display: 'Fraunces', serif;
   --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -144,7 +144,7 @@ p { margin: 0 0 1em; }
   border-color: var(--canvas);
   color: var(--canvas);
 }
-.btn-outline:hover { background: rgba(250,246,238,0.12); transform: translateY(-1px); }
+.btn-outline:hover { background: rgba(255,255,255,0.12); transform: translateY(-1px); }
 
 .btn-dark {
   background: var(--green);
@@ -159,7 +159,7 @@ p { margin: 0 0 1em; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(250,246,238,0.92);
+  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
@@ -283,23 +283,23 @@ p { margin: 0 0 1em; }
   margin-bottom: 16px;
 }
 .footer-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
-.footer-col a, .footer-col p { color: rgba(250,246,238,0.75); font-size: 0.92rem; }
+.footer-col a, .footer-col p { color: rgba(255,255,255,0.75); font-size: 0.92rem; }
 .footer-col a:hover { color: var(--gold); }
 .footer-bottom {
-  border-top: 1px solid rgba(250,246,238,0.15);
+  border-top: 1px solid rgba(255,255,255,0.15);
   padding-top: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.82rem;
-  color: rgba(250,246,238,0.55);
+  color: rgba(255,255,255,0.55);
   flex-wrap: wrap;
   gap: 12px;
 }
 .social-row { display: flex; gap: 14px; }
 .social-row a {
   width: 34px; height: 34px;
-  border: 1px solid rgba(250,246,238,0.25);
+  border: 1px solid rgba(255,255,255,0.25);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   transition: border-color 0.2s, background 0.2s;
@@ -363,7 +363,7 @@ p { margin: 0 0 1em; }
 }
 .stat span {
   font-size: 0.84rem;
-  color: rgba(250,246,238,0.7);
+  color: rgba(255,255,255,0.7);
   letter-spacing: 0.03em;
 }
 
@@ -413,7 +413,7 @@ p { margin: 0 0 1em; }
 .page-hero .eyebrow { color: var(--gold); }
 .page-hero .eyebrow::before { background: var(--gold); }
 .page-hero h1 { color: var(--canvas); }
-.page-hero .lede { color: rgba(250,246,238,0.78); }
+.page-hero .lede { color: rgba(255,255,255,0.78); }
 
 /* ---------- Tabs / pills ---------- */
 .pill {
@@ -676,13 +676,13 @@ p { margin: 0 0 1em; }
 
 /* ---------- About page: Value cards ---------- */
 .value-card {
-  background: rgba(250,246,238,0.05);
-  border: 1px solid rgba(250,246,238,0.16);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.16);
   border-radius: var(--radius);
   padding: 32px 28px;
 }
 .value-card h3 { color: var(--gold); margin-bottom: 10px; font-size: 1.15rem; }
-.value-card p { color: rgba(250,246,238,0.75); margin: 0; font-size: 0.95rem; }
+.value-card p { color: rgba(255,255,255,0.75); margin: 0; font-size: 0.95rem; }
 
 /* ---------- Hero ---------- */
 .hero { padding: 76px 0 0; background: var(--canvas); position: relative; }
