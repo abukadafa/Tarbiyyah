@@ -1,42 +1,99 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { events } from '../data/events.js';
+
+const heroSlides = [
+  {
+    id: 'hero_slide_1',
+    type: 'video',
+    src: 'https://assets.mixkit.co/videos/preview/mixkit-kids-in-a-classroom-smiling-at-the-camera-34289-large.mp4',
+    title: 'Prosperity for All.',
+    subtitle: 'Tarbiyyah Support Foundation',
+    description: 'Empowering underserved children and uplifting dedicated teachers through quality education and moral guidance across rural Nigeria.'
+  },
+  {
+    id: 'hero_slide_2',
+    type: 'image',
+    src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1600&q=80',
+    title: 'Uplifting Dedicated Teachers.',
+    subtitle: 'Welfare Stipends & Resources',
+    description: 'We provide monthly support stipends and instructional materials to rural educators so they can focus entirely on teaching.'
+  },
+  {
+    id: 'hero_slide_3',
+    type: 'image',
+    src: 'https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=1600&q=80',
+    title: 'Building Safe Classrooms.',
+    subtitle: 'Educational Infrastructure Outreach',
+    description: 'Renovating roofless school blocks and creating safe, weather-proof learning environments in remote communities.'
+  }
+];
 
 export default function Home() {
-  const [slideIndex, setSlideIndex] = useState(0);
+  const [heroIndex, setHeroIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setSlideIndex((prev) => (prev + 1) % events.length);
-    }, 5000);
+      setHeroIndex((prev) => (prev + 1) % heroSlides.length);
+    }, 8000);
     return () => clearInterval(timer);
   }, []);
 
-  const nextSlide = () => {
-    setSlideIndex((prev) => (prev + 1) % events.length);
+  const nextHero = () => {
+    setHeroIndex((prev) => (prev + 1) % heroSlides.length);
   };
 
-  const prevSlide = () => {
-    setSlideIndex((prev) => (prev - 1 + events.length) % events.length);
+  const prevHero = () => {
+    setHeroIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
   };
+
+  const activeHero = heroSlides[heroIndex];
 
   return (
     <>
-      {/* HERO */}
+      {/* HERO SLIDESHOW */}
       <section className="hero video-hero">
-        {/* Background Video */}
+        {/* Active Slide Background */}
         <div className="hero-video-bg">
-          <video autoPlay muted loop playsInline>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-kids-in-a-classroom-smiling-at-the-camera-34289-large.mp4" type="video/mp4" />
-          </video>
+          {activeHero.type === 'video' ? (
+            <video key={activeHero.src} autoPlay muted loop playsInline>
+              <source src={activeHero.src} type="video/mp4" />
+            </video>
+          ) : (
+            <img 
+              src={activeHero.src} 
+              alt={activeHero.title} 
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+            />
+          )}
           <div className="hero-video-overlay"></div>
+        </div>
+
+        {/* Navigation Arrows */}
+        <button className="hero-nav-arrow arrow-left" onClick={prevHero} aria-label="Previous slide" type="button">
+          ←
+        </button>
+        <button className="hero-nav-arrow arrow-right" onClick={nextHero} aria-label="Next slide" type="button">
+          →
+        </button>
+
+        {/* Navigation Dots */}
+        <div className="hero-dots-container">
+          {heroSlides.map((_, idx) => (
+            <button 
+              key={idx}
+              className={`hero-dot ${heroIndex === idx ? 'is-active' : ''}`}
+              onClick={() => setHeroIndex(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              type="button"
+            ></button>
+          ))}
         </div>
 
         <div className="wrap hero-grid">
           <div className="hero-copy" data-reveal>
-            <p className="eyebrow" style={{ color: 'var(--gold)' }}>Tarbiyyah Support Foundation</p>
-            <h1 style={{ color: 'var(--canvas)' }}>Prosperity for All.</h1>
-            <p className="lede" style={{ color: 'rgba(255, 255, 255, 0.85)' }}>Empowering underserved children and uplifting dedicated teachers through quality education and moral guidance across rural Nigeria.</p>
+            <p className="eyebrow" style={{ color: 'var(--gold)' }}>{activeHero.subtitle}</p>
+            <h1 style={{ color: 'var(--canvas)' }}>{activeHero.title}</h1>
+            <p className="lede" style={{ color: 'rgba(255, 255, 255, 0.85)' }}>{activeHero.description}</p>
             <div className="hero-actions">
               <Link to="/donate" className="btn btn-primary">Donate Now</Link>
               <Link to="/impact" className="btn btn-outline">See Our Impact →</Link>
@@ -65,6 +122,43 @@ export default function Home() {
           <Link to="/donate" style={{ textDecoration: 'underline', fontWeight: 800 }}>Help build one →</Link>
         </div>
       </div>
+
+      {/* QUICK PORTALS & SERVICES (NOU Style) */}
+      <section className="portals-section">
+        <div className="wrap">
+          <div className="portals-grid" data-reveal="stagger">
+            
+            <div className="portal-card">
+              <div className="portal-icon">🎓</div>
+              <h4>Student Sponsorship Portal</h4>
+              <p>Explore candidate profiles of students in Kano, Kaduna, and Sokoto who need sponsorship for registration and kits.</p>
+              <Link to="/donate" className="portal-link">Access Portal →</Link>
+            </div>
+
+            <div className="portal-card">
+              <div className="portal-icon">🍎</div>
+              <h4>Teacher Support Registry</h4>
+              <p>Check teacher stipend disbursements, welfare status reports, and apply for rural educator allowances.</p>
+              <Link to="/about" className="portal-link">View Registry →</Link>
+            </div>
+
+            <div className="portal-card">
+              <div className="portal-icon">🧱</div>
+              <h4>Infrastructure Project Board</h4>
+              <p>Track ongoing classroom constructions, roof installations, and supply deliveries in real-time.</p>
+              <Link to="/impact" className="portal-link">Track Projects →</Link>
+            </div>
+
+            <div className="portal-card">
+              <div className="portal-icon">📚</div>
+              <h4>Moral &amp; Academic E-Library</h4>
+              <p>Download our integrated Tarbiyyah curriculum guides, moral training cards, and standard textbooks.</p>
+              <Link to="/about" className="portal-link">Open E-Library →</Link>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* ARCH DIVIDER */}
       <div className="arch-divider" style={{ background: 'var(--canvas)' }}>
@@ -115,67 +209,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURED DYNAMIC MEDIA & EVENTS SECTION */}
-      <section className="home-media-section">
-        <div className="wrap home-media-grid">
+      {/* NEWS, VIDEO & ANNOUNCEMENTS (NOU Style) */}
+      <section className="news-board-section">
+        <div className="wrap news-board-grid">
           
-          {/* LEFT: Featured Short Video */}
-          <div className="home-video-wrapper" data-reveal>
-            <h3>Our Mission in Action</h3>
-            <video 
-              className="home-html5-player" 
-              controls 
-              muted 
-              loop 
-              autoPlay
-              playsInline
-            >
-              <source src="https://assets.mixkit.co/videos/preview/mixkit-kids-in-a-classroom-smiling-at-the-camera-34289-large.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <p className="video-caption">🎥 Watch a brief video showcasing our rural student outreach and classroom environments.</p>
+          {/* LEFT: Featured Video Player */}
+          <div className="board-left" data-reveal>
+            <h3 className="section-title-alt">Documentary &amp; Media</h3>
+            <div className="video-player-container">
+              <video 
+                className="board-video" 
+                controls 
+                muted 
+                loop 
+                autoPlay
+                playsInline
+              >
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-kids-in-a-classroom-smiling-at-the-camera-34289-large.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p className="video-caption">🎥 Documenting classroom environments and pupil learning across Kano outreach schools.</p>
+            </div>
           </div>
 
-          {/* RIGHT: Events Slideshow */}
-          <div className="home-slideshow-wrapper" data-reveal>
-            <h3>Recent Outreach &amp; Events</h3>
-            <div className="slideshow-container">
-              {events.map((event, idx) => (
-                <div 
-                  key={event.id}
-                  className={`slideshow-slide ${slideIndex === idx ? 'slide-active' : ''}`}
-                  style={{ display: slideIndex === idx ? 'block' : 'none' }}
-                >
-                  <div className="slide-image-wrap">
-                    <img src={event.image} alt={event.title} loading="lazy" />
-                  </div>
-                  <div className="slide-content">
-                    <span className="slide-date">{event.date}</span>
-                    <h4 className="slide-title">{event.title}</h4>
-                    <p className="slide-desc">{event.description}</p>
-                  </div>
-                </div>
-              ))}
+          {/* RIGHT: Announcements Bulletin Board */}
+          <div className="board-right" data-reveal>
+            <h3 className="section-title-alt">Latest News &amp; Bulletins</h3>
+            <div className="announcements-container">
               
-              <div className="slideshow-controls">
-                <button className="slideshow-btn" onClick={prevSlide} aria-label="Previous event" type="button">
-                  ←
-                </button>
-                <div className="slideshow-dots">
-                  {events.map((_, idx) => (
-                    <button 
-                      key={idx}
-                      className={`slideshow-dot ${slideIndex === idx ? 'is-active' : ''}`}
-                      onClick={() => setSlideIndex(idx)}
-                      aria-label={`Go to event ${idx + 1}`}
-                      type="button"
-                    ></button>
-                  ))}
-                </div>
-                <button className="slideshow-btn" onClick={nextSlide} aria-label="Next event" type="button">
-                  →
-                </button>
+              <div className="announcement-item">
+                <span className="announcement-date">June 25, 2026</span>
+                <h5>June 2026 Teacher Welfare Allowances Disbursed</h5>
+                <p>Support stipends for all 45 registered rural schoolteachers have been successfully paid out for the month of June.</p>
+                <Link to="/about" className="announcement-more">Read More →</Link>
               </div>
+
+              <div className="announcement-item">
+                <span className="announcement-date">June 18, 2026</span>
+                <h5>Kano State School Renovation Completed</h5>
+                <p>Our team completed the installation of a new aluminum roof sheet system and double blackboards for the local Kano school block.</p>
+                <Link to="/impact" className="announcement-more">Read More →</Link>
+              </div>
+
+              <div className="announcement-item">
+                <span className="announcement-date">June 05, 2026</span>
+                <h5>Distribution of 500+ Learning Packages</h5>
+                <p>Pupils in underserved Sokoto local schools received learning kits including pencils, slates, and academic guides.</p>
+                <Link to="/impact" className="announcement-more">Read More →</Link>
+              </div>
+
             </div>
           </div>
 

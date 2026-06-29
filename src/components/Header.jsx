@@ -27,7 +27,25 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="site-header">
+    <>
+      <div className="header-top-bar">
+        <div className="wrap top-bar-wrap">
+          <div className="top-bar-left">
+            <span>Operating in rural Northern Nigeria</span>
+            <span className="dot">·</span>
+            <span>Registered NGO: CAC/IT/NO/12345</span>
+          </div>
+          <div className="top-bar-right">
+            <Link to="/about">FAQs</Link>
+            <span className="dot">·</span>
+            <Link to="/about">Contact Support</Link>
+            <span className="dot">·</span>
+            <a href="https://github.com/abukadafa/Tarbiyyah.git" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+
+      <header className="site-header">
       <nav className="nav">
         <Link to="/" className="brand" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', padding: '4px 0' }}>
           <img src="/logo.png" alt="Tarbiyyah Support Foundation" style={{ height: '44px', width: 'auto', display: 'block' }} />
@@ -51,5 +69,6 @@ export default function Header() {
         </div>
       </nav>
     </header>
+    </>
   );
 }
