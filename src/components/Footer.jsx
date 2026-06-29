@@ -65,9 +65,11 @@ export default function Footer() {
         <div className="footer-bottom">
           <span>© 2026 Tarbiyyah Support Foundation. All rights reserved.</span>
           <div className="social-row">
-            <a href="#" aria-label="Facebook">f</a>
-            <a href="#" aria-label="Instagram">ig</a>
-            <a href="#" aria-label="X">x</a>
+            <a href="#" aria-label="Facebook" onClick={(e) => e.preventDefault()}>f</a>
+            <a href="#" aria-label="TikTok" onClick={(e) => e.preventDefault()}>tt</a>
+            <a href="#" aria-label="Instagram" onClick={(e) => e.preventDefault()}>ig</a>
+            <a href="#" aria-label="LinkedIn" onClick={(e) => e.preventDefault()}>ln</a>
+            <a href="#" aria-label="X" onClick={(e) => e.preventDefault()}>x</a>
           </div>
         </div>
       </div>
