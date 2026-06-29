@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Production Build
+dist/
+
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs and system folders
+*.log
+.system_generated/
+.agents/
+task.md
+walkthrough.md
+implementation_plan.md
+
+# Editor directories
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
