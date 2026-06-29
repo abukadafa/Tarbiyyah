@@ -23,25 +23,33 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="hero">
+      <section className="hero video-hero">
+        {/* Background Video */}
+        <div className="hero-video-bg">
+          <video autoPlay muted loop playsInline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-kids-in-a-classroom-smiling-at-the-camera-34289-large.mp4" type="video/mp4" />
+          </video>
+          <div className="hero-video-overlay"></div>
+        </div>
+
         <div className="wrap hero-grid">
           <div className="hero-copy" data-reveal>
-            <p className="eyebrow">Tarbiyyah Support Foundation</p>
-            <h1>Prosperity for All.</h1>
-            <p className="lede">Empowering underserved children and uplifting dedicated teachers through quality education and moral guidance across rural Nigeria.</p>
+            <p className="eyebrow" style={{ color: 'var(--gold)' }}>Tarbiyyah Support Foundation</p>
+            <h1 style={{ color: 'var(--canvas)' }}>Prosperity for All.</h1>
+            <p className="lede" style={{ color: 'rgba(255, 255, 255, 0.85)' }}>Empowering underserved children and uplifting dedicated teachers through quality education and moral guidance across rural Nigeria.</p>
             <div className="hero-actions">
               <Link to="/donate" className="btn btn-primary">Donate Now</Link>
-              <Link to="/impact" className="btn btn-ghost">See Our Impact →</Link>
+              <Link to="/impact" className="btn btn-outline">See Our Impact →</Link>
             </div>
-            <div className="hero-trust">
-              <span>Registered non-profit</span><span className="dot">·</span><span>Operating in rural Northern Nigeria</span>
+            <div className="hero-trust" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
+              <span>Registered non-profit</span><span className="dot" style={{ color: 'rgba(255,255,255,0.3)' }}>·</span><span>Operating in rural Northern Nigeria</span>
             </div>
           </div>
           <div className="hero-visual" data-reveal>
-            <div className="arch-frame">
+            <div className="arch-frame" style={{ border: '1px solid rgba(255,255,255,0.2)' }}>
               <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=900&q=80" alt="A child writing at a wooden desk in a rural classroom" loading="eager" />
             </div>
-            <div className="hero-badge">
+            <div className="hero-badge" style={{ background: 'var(--canvas)', border: '1px solid var(--line)' }}>
               <b>14</b>
               <span>years serving rural communities</span>
             </div>
