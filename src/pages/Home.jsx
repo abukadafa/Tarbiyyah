@@ -28,6 +28,12 @@ const heroSlides = [
   }
 ];
 
+const heroVisualImages = [
+  "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"
+];
+
 export default function Home() {
   const [heroIndex, setHeroIndex] = useState(0);
 
@@ -104,7 +110,7 @@ export default function Home() {
           </div>
           <div className="hero-visual" data-reveal>
             <div className="arch-frame" style={{ border: '1px solid rgba(255,255,255,0.2)' }}>
-              <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=900&q=80" alt="A child writing at a wooden desk in a rural classroom" loading="eager" />
+              <img src={heroVisualImages[heroIndex]} alt="Outreach events highlighting pupils and educators" loading="eager" />
             </div>
             <div className="hero-badge" style={{ background: 'var(--canvas)', border: '1px solid var(--line)' }}>
               <b>14</b>
@@ -261,6 +267,64 @@ export default function Home() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* OPERATIONS MAP SECTION */}
+      <section className="map-section">
+        <div className="wrap map-grid">
+          
+          {/* LEFT: Google Maps Iframe */}
+          <div className="map-container-box" data-reveal>
+            <iframe 
+              className="map-iframe"
+              title="Tarbiyyah Operations Map (Northern Nigeria)"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1993699.2789178302!2d6.216391456579592!3d12.000122247248316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11ae7e54f9a0d819%3A0x8e83be6228dc668b!2sKano%20State!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          {/* RIGHT: Operational Information */}
+          <div className="map-details" data-reveal>
+            <h3>Our Areas of Operation</h3>
+            <p>We work directly on the ground in rural communities across Northern Nigeria where educational infrastructure is most severely lacking. Our field teams coordinate closely with local councils to deliver aid directly to classrooms.</p>
+            
+            <div className="hubs-list">
+              <div className="hub-item">
+                <h5>Kano Operations Hub</h5>
+                <span>12 Classrooms Renovated · 18 Teachers Supported</span>
+              </div>
+              <div className="hub-item">
+                <h5>Sokoto Outreach Hub</h5>
+                <span>8 Classrooms Renovated · 12 Teachers Supported</span>
+              </div>
+              <div className="hub-item">
+                <h5>Kaduna Project Hub</h5>
+                <span>6 Classrooms Renovated · 10 Teachers Supported</span>
+              </div>
+              <div className="hub-item">
+                <h5>Borno Reconstruction Hub</h5>
+                <span>4 Classrooms Renovated · 8 Teachers Supported</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* OUR PARTNERS SECTION */}
+      <section className="partners-section">
+        <div className="wrap">
+          <h3>Our Trusted Partners &amp; Supporters</h3>
+          <div className="partners-grid" data-reveal="stagger">
+            <span className="partner-logo">Kano MoE</span>
+            <span className="partner-logo">Northern Trust</span>
+            <span className="partner-logo">Al-Qalam Council</span>
+            <span className="partner-logo">GlobalGiving Fund</span>
+            <span className="partner-logo">Tarbiyyah Union</span>
+          </div>
         </div>
       </section>
 
