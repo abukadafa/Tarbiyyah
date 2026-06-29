@@ -23,16 +23,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
 :root {
-  --ink: #1C1D1A;             /* Sharper charcoal text */
-  --canvas: #FFFFFF;          /* Pure crisp white background */
-  --canvas-deep: #F5F7F2;     /* Clean light gray-green tint */
-  --green: #0C3825;           /* Richer, deeper forest green */
-  --green-soft: #164D36;      /* Vibrant hover state green */
-  --sage: #5F7455;            /* Muted green with higher contrast */
-  --gold: #D29A2E;            /* Brighter, sharper gold accent */
-  --gold-soft: #F5EAD2;       /* Warm gold tint */
-  --terracotta: #C2511D;      /* Sharper terracotta warning/urgency color */
-  --line: #E2DBD0;            /* Sharper border lines */
+  --ink: #1C1D1A;             /* Charcoal text */
+  --canvas: #FFFFFF;          /* Brand White */
+  --canvas-deep: #F4F6F2;     /* Off-white light gray-green canvas tint */
+  --green: #083B29;           /* Brand Deep Green */
+  --green-soft: #0E523A;      /* Brand Deep Green Soft hover */
+  --sage: #5E7A6E;            /* Muted gray-green secondary */
+  --gold: #DCA11D;            /* Brand Mustard Yellow */
+  --gold-soft: #F9F4E5;       /* Warm mustard/cream tint */
+  --terracotta: #C65724;      /* Terracotta accent orange */
+  --line: #E2DDD5;            /* Light gray-cream border lines */
 
   --font-display: 'Fraunces', serif;
   --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;

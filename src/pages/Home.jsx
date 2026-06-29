@@ -278,8 +278,8 @@ export default function Home() {
           <div className="map-container-box" data-reveal>
             <iframe 
               className="map-iframe"
-              title="Tarbiyyah Operations Map (Northern Nigeria)"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1993699.2789178302!2d6.216391456579592!3d12.000122247248316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11ae7e54f9a0d819%3A0x8e83be6228dc668b!2sKano%20State!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng"
+              title="Tarbiyyah Operations Map (Malali GRA, Kaduna)"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.3837968536836!2d7.447547074783935!3d10.549219689592473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11b3fe049bba3577%3A0xc07a4a7541f4ffde!2sKam%20Salem%20Rd%2C%20Malali%2C%20Kaduna%20800244%2C%20Kaduna!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -289,9 +289,13 @@ export default function Home() {
           {/* RIGHT: Operational Information */}
           <div className="map-details" data-reveal>
             <h3>Our Areas of Operation</h3>
-            <p>We work directly on the ground in rural communities across Northern Nigeria where educational infrastructure is most severely lacking. Our field teams coordinate closely with local councils to deliver aid directly to classrooms.</p>
+            <p>Our headquarters is located at Kam Salem Road, Malali GRA, Kaduna. From this central base, our field teams coordinate logistics, classroom renovations, and teacher stipends across remote communities in Northern Nigeria.</p>
             
             <div className="hubs-list">
+              <div className="hub-item">
+                <h5>Kaduna Headquarters Hub</h5>
+                <span>Kam Salem Road, Malali GRA · 6 Classrooms · 10 Teachers</span>
+              </div>
               <div className="hub-item">
                 <h5>Kano Operations Hub</h5>
                 <span>12 Classrooms Renovated · 18 Teachers Supported</span>
@@ -299,10 +303,6 @@ export default function Home() {
               <div className="hub-item">
                 <h5>Sokoto Outreach Hub</h5>
                 <span>8 Classrooms Renovated · 12 Teachers Supported</span>
-              </div>
-              <div className="hub-item">
-                <h5>Kaduna Project Hub</h5>
-                <span>6 Classrooms Renovated · 10 Teachers Supported</span>
               </div>
               <div className="hub-item">
                 <h5>Borno Reconstruction Hub</h5>

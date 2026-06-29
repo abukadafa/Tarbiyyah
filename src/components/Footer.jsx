@@ -34,9 +34,10 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Contact</h4>
             <ul>
-              <li><p>Kano, Nigeria</p></li>
-              <li><a href="mailto:info@tarbiyyahsupport.org">info@tarbiyyahsupport.org</a></li>
-              <li><a href="tel:+2348000000000">+234 800 000 0000</a></li>
+              <li><p>Kam Salem Road, Malali GRA, Kaduna</p></li>
+              <li><a href="mailto:contact@tarbiyyah.org">contact@tarbiyyah.org</a></li>
+              <li><a href="tel:+2348136934004">0813 693 4004</a></li>
+              <li><a href="tel:+2348091581000">0809 158 1000</a></li>
             </ul>
           </div>
           <div className="footer-col">
